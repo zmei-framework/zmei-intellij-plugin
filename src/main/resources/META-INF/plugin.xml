@@ -1,0 +1,73 @@
+<idea-plugin version="2">
+	<id>com.zmei-framework.generator.plugin</id>
+	<name>Zmei Generator Intellij plugin</name>
+	<version>0.1</version>
+	<vendor email="support@zmei-framework.com" url="https://zmei-framework.com/generator">Zmei Framework</vendor>
+
+	<description><![CDATA[
+  <p>Zmei Generator Intellij plugin</p>
+
+<p>
+<a href="http://zmei-framework.com/generator/">Documentation</a>
+  ]]></description>
+
+	<change-notes><![CDATA[
+        ]]>
+	</change-notes>
+
+	<!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+	<!--<idea-version since-build="143"/> &lt;!&ndash; requires 14.x &ndash;&gt;-->
+
+	<!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+		 on how to target different products -->
+	<!-- uncomment to enable plugin in all products -->
+
+
+    <idea-version since-build="180.0"/>
+
+
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.python</depends>
+
+	<application-components>
+	</application-components>
+
+	<actions>
+	</actions>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<fileTypeFactory implementation="ee.negative.zmei.lang.intellij.ZmeiLangFileTypeFactory"/>
+
+        <annotator language="ZmeiLang" implementationClass="ee.negative.zmei.lang.intellij.ZmeiLangAnnotator"/>
+
+        <completion.contributor language="ZmeiLang" implementationClass="ee.negative.zmei.lang.intellij.ZmeiLangCompletionContributor"/>
+
+
+        <lang.syntaxHighlighterFactory language="ZmeiLang"
+									   implementationClass="ee.negative.zmei.lang.intellij.ZmeiLangSyntaxHighlighterFactory"/>
+
+		<lang.parserDefinition language="ZmeiLang" implementationClass="ee.negative.zmei.lang.intellij.ZmeiLangParserDefinition"/>
+		<!--<lang.ast.factory language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleASTFactory"/>-->
+
+		<!--<lang.psiStructureViewFactory language="ZmeiLang"-->
+									  <!--implementationClass="org.antlr.jetbrains.sample.structview.SampleStructureViewFactory"/>-->
+
+		<colorSettingsPage implementation="ee.negative.zmei.lang.intellij.ZmeiLangColorSettingsPage"/>
+
+		<lang.psiStructureViewFactory language="ZmeiLang"
+									  implementationClass="ee.negative.zmei.lang.intellij.structure.ZmeiLangStructureFactory"/>
+
+
+		<lang.commenter language="ZmeiLang" implementationClass="ee.negative.zmei.lang.intellij.ZmeiLangCommenter"/>
+
+		<!--<braceMatcher filetype="ZmeiLang" implementationClass="ee.negative.zmei.lang.intellij.ZmeiLangBraceMatcher"/>-->
+		<!--<languageInjector implementation="ee.negative.zmei.lang.intellij.PageElementInjector" />-->
+		<!--<languageInjector implementation="ee.negative.zmei.lang.intellij.PythonLanguageInjector" />-->
+        <!--<multiHostInjector implementation="ee.negative.zmei.lang.intellij.injector.PythonLanguageMultihostInjector" />-->
+
+		<!--<externalAnnotator language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleExternalAnnotator"/>-->
+
+		<!--<lang.findUsagesProvider language="Sample"-->
+								 <!--implementationClass="org.antlr.jetbrains.sample.SampleFindUsagesProvider"/>-->
+	</extensions>
+</idea-plugin>
